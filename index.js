@@ -5,11 +5,8 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
 mongoose.set("useFindAndModify", false);
 
-const conexionDbCloud = `mongodb+srv://chander131:eBJUy47Wwa7BtF3@webpersonal.bn4dq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-const conexionDbLocal = `mongodb://${IP_SERVER}:${PORT_DB}/basewebpersonal`;
-
 mongoose.connect(
-    conexionDbCloud,
+    `mongodb://${IP_SERVER}:${PORT_DB}/basewebpersonal`,
     { useNewUrlParser: true, useUnifiedTopology: true },
     (err, res) => {
         if (err) {
