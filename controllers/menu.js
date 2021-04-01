@@ -10,10 +10,10 @@ function addMenu(req, res) {
     menu.active = active;
 
     menu.save((err, createMenu) => {
-        if(err){
+        if (err) {
             res.status(500).send({ message: 'Error del servidor.' });
         } else {
-            if(!createMenu) res.status(404).send({ message: 'Error al crear el menu.' });
+            if (!createMenu) res.status(404).send({ message: 'Error al crear el menu.' });
             else res.status(200).send({ message: 'Menu creado correctamente.' });
         }
     });
@@ -21,10 +21,10 @@ function addMenu(req, res) {
 
 function getMenus(req, res) {
     Menu.find().sort({ order: 'asc' }).exec((err, menusStored) => {
-        if(err) {
+        if (err) {
             res.status(500).send({ message: 'Error del servidor.' });
         } else {
-            if(!menusStored) {
+            if (!menusStored) {
                 res.status(404).send({ message: 'No se a encontrado ningun menu.' });
             } else {
                 res.status(200).send({ menu: menusStored });
@@ -38,10 +38,10 @@ function updateMenu(req, res) {
     const params = req.params;
 
     Menu.findByIdAndUpdate(params.id, menuData, (err, menuUpdate) => {
-        if(err) {
+        if (err) {
             res.status(500).send({ message: 'Error del servidor.' });
         } else {
-            if(!menuUpdate) {
+            if (!menuUpdate) {
                 res.status(404).send({ message: 'No se a encontrado ningun menu.' });
             } else {
                 res.status(200).send({ message: 'Menu actualizado correctamente.' });
@@ -55,13 +55,13 @@ function activateMenu(req, res) {
     const { active } = req.body;
 
     Menu.findByIdAndUpdate(id, { active }, (err, menuUpdate) => {
-        if(err) {
+        if (err) {
             res.status(500).send({ message: 'Error del servidor.' });
         } else {
-            if(!menuUpdate) {
+            if (!menuUpdate) {
                 res.status(404).send({ message: 'No se a encontrado el menu.' });
             } else {
-                if(active === true) res.status(200).send({ message: 'Menu activado correctamente.' });
+                if (active === true) res.status(200).send({ message: 'Menu activado correctamente.' });
                 else res.status(200).send({ message: 'Menu desactivado correctamente.' });
             }
         }
@@ -72,10 +72,10 @@ function deleteMenu(req, res) {
     const { id } = req.params;
 
     Menu.findByIdAndRemove(id, (err, menuDelete) => {
-        if(err) {
+        if (err) {
             res.status(500).send({ message: 'Error del servidor.' });
         } else {
-            if(!menuDelete) {
+            if (!menuDelete) {
                 res.status(404).send({ message: 'Menu no encontrado.' });
             } else {
                 res.status(200).send({ message: 'El menu a sido eliminado correctamente.' });
