@@ -29,8 +29,8 @@ app.use((req, res, next) => {
 });
 
 // Muestra la IP desde donde se esta realizando uno solicitud
-app.set('trust proxy', true);
-app.use(md_request.ipRequest);
+// app.set('trust proxy', true);
+// app.use(md_request.ipRequest);
 
 // Router Basic
 app.use(`/api/${API_VERSION}`, authRoutes);

@@ -6,7 +6,7 @@ const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 mongoose.set("useFindAndModify", false);
 
 mongoose.connect(
-    `mongodb://${IP_SERVER}:${PORT_DB}/basewebpersonal`,
+    `mongodb+srv://chander131:eBJUy47Wwa7BtF3@webpersonal.bn4dq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
     { useNewUrlParser: true, useUnifiedTopology: true },
     (err, res) => {
         if (err) {
@@ -18,7 +18,7 @@ mongoose.connect(
                 console.log("#####################");
                 console.log("###### API REST #####");
                 console.log("#####################");
-                console.log(`http://${IP_SERVER}:${port}/api/${API_VERSION}`);
+                console.log(`${IP_SERVER}:${port}/api/${API_VERSION}`);
             });
         }
     }

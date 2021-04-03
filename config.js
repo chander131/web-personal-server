@@ -1,5 +1,5 @@
 const API_VERSION = 'v1';
-const IP_SERVER = 'localhost';
+const IP_SERVER = 'https://webpersonalmern.herokuapp.com/';
 const PORT_DB = 27017;
 
 module.exports = {
